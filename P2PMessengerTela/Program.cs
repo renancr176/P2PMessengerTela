@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace P2PMessengerTela
 {
@@ -17,7 +19,7 @@ namespace P2PMessengerTela
 
         static void Main(string[] args)
         {
-            Console.WriteLine("P2PMessenger");
+            Console.WriteLine("P2PMessengerTela");
 
             string porta;
             do
@@ -30,7 +32,7 @@ namespace P2PMessengerTela
                 if (!ValidaIp(IpServidor))
                 {
                     Console.Clear();
-                    Console.WriteLine("P2PMessenger");
+                    Console.WriteLine("P2PMessengerTela");
                 }
 
             } while (!ValidaIp(IpServidor));
@@ -44,7 +46,7 @@ namespace P2PMessengerTela
                 if (!int.TryParse(porta, out PortaServidor))
                 {
                     Console.Clear();
-                    Console.WriteLine("P2PMessenger");
+                    Console.WriteLine("P2PMessengerTela");
                 }
 
             } while (!int.TryParse(porta, out PortaServidor));
@@ -93,19 +95,54 @@ namespace P2PMessengerTela
                     if (client.Connected)
                     {
                         Console.Clear();
-                        Console.WriteLine("P2PMessenger - Tela Chat");
+                        Console.WriteLine("P2PMessengerTela");
 
                         NetworkStream ns = client.GetStream();
 
                         while (!_cancellationToken.IsCancellationRequested && client.Connected)
                         {
-                            byte[] msg = new byte[1024];
+                            byte[] msg = new byte[999999];
                             await ns.ReadAsync(msg, 0, msg.Length);
-                            var mensagem = Encoding.Default.GetString(msg).Trim();
 
-                            if (!string.IsNullOrEmpty(mensagem))
+                            var jsonStr = Encoding.Default.GetString(msg);
+
+                            var mensagem = JsonConvert.DeserializeObject<Mensagem>(jsonStr);
+
+                            if (mensagem != null)
                             {
-                                Console.WriteLine(mensagem);
+                                switch (mensagem.TipoMensagem)
+                                {
+                                    case TipoMensagemEnum.Mensagem:
+                                        Console.WriteLine(mensagem.Texto);
+                                        break;
+                                    case TipoMensagemEnum.Arquivo:
+                                        if (mensagem.Arquivo != null && mensagem.Arquivo.Valido())
+                                        {
+                                            Console.WriteLine($"Arquivo {mensagem.Arquivo.Nome} recebido.");
+
+                                            try
+                                            {
+                                                var caminhoBase =
+                                                    $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\Arquivos Recebidos";
+
+                                                Directory.CreateDirectory(caminhoBase);
+
+                                                var caminho = caminhoBase + $"\\{mensagem.Arquivo.Nome}";
+
+                                                using (var imageFile = new FileStream(caminho, FileMode.Create))
+                                                {
+                                                    imageFile.Write(mensagem.Arquivo.GetBytes(), 0,
+                                                        mensagem.Arquivo.GetBytes().Length);
+                                                    imageFile.Flush();
+                                                }
+                                            }
+                                            catch (Exception e)
+                                            {
+                                            }
+                                        }
+
+                                        break;
+                                }
                             }
                         }
                     }
@@ -123,5 +160,34 @@ namespace P2PMessengerTela
                 }
             }
         }
+    }
+
+    public class Mensagem
+    {
+        public TipoMensagemEnum TipoMensagem { get; set; }
+        public string Texto { get; set; }
+        public Arquivo Arquivo { get; set; }
+    }
+
+    public class Arquivo
+    {
+        public string Nome { get; set; }
+        public string ArquivoTexto { get; set; }
+
+        public bool Valido()
+        {
+            return (!string.IsNullOrEmpty(Nome?.Trim()) && !string.IsNullOrEmpty(ArquivoTexto?.Trim()));
+        }
+
+        public byte[] GetBytes()
+        {
+            return Convert.FromBase64String(ArquivoTexto);
+        }
+    }
+
+    public enum TipoMensagemEnum
+    {
+        Mensagem,
+        Arquivo
     }
 }

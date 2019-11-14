@@ -9,3 +9,14 @@ D:\Github\P2PMessengerTela\P2PMessengerTela\obj\Debug\netcoreapp2.2\P2PMessenger
 D:\Github\P2PMessengerTela\P2PMessengerTela\obj\Debug\netcoreapp2.2\P2PMessengerTela.AssemblyInfo.cs
 D:\Github\P2PMessengerTela\P2PMessengerTela\obj\Debug\netcoreapp2.2\P2PMessengerTela.dll
 D:\Github\P2PMessengerTela\P2PMessengerTela\obj\Debug\netcoreapp2.2\P2PMessengerTela.pdb
+C:\Github\P2PMessengerTela\P2PMessengerTela\bin\Debug\netcoreapp2.2\P2PMessengerTela.deps.json
+C:\Github\P2PMessengerTela\P2PMessengerTela\bin\Debug\netcoreapp2.2\P2PMessengerTela.runtimeconfig.json
+C:\Github\P2PMessengerTela\P2PMessengerTela\bin\Debug\netcoreapp2.2\P2PMessengerTela.runtimeconfig.dev.json
+C:\Github\P2PMessengerTela\P2PMessengerTela\bin\Debug\netcoreapp2.2\P2PMessengerTela.dll
+C:\Github\P2PMessengerTela\P2PMessengerTela\bin\Debug\netcoreapp2.2\P2PMessengerTela.pdb
+C:\Github\P2PMessengerTela\P2PMessengerTela\obj\Debug\netcoreapp2.2\P2PMessengerTela.csprojAssemblyReference.cache
+C:\Github\P2PMessengerTela\P2PMessengerTela\obj\Debug\netcoreapp2.2\P2PMessengerTela.csproj.CoreCompileInputs.cache
+C:\Github\P2PMessengerTela\P2PMessengerTela\obj\Debug\netcoreapp2.2\P2PMessengerTela.AssemblyInfoInputs.cache
+C:\Github\P2PMessengerTela\P2PMessengerTela\obj\Debug\netcoreapp2.2\P2PMessengerTela.AssemblyInfo.cs
+C:\Github\P2PMessengerTela\P2PMessengerTela\obj\Debug\netcoreapp2.2\P2PMessengerTela.dll
+C:\Github\P2PMessengerTela\P2PMessengerTela\obj\Debug\netcoreapp2.2\P2PMessengerTela.pdb

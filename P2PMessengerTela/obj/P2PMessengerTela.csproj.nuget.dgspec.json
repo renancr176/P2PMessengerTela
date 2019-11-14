@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\P2PMessengerTela\\P2PMessengerTela\\P2PMessengerTela.csproj": {}
+    "C:\\Github\\P2PMessengerTela\\P2PMessengerTela\\P2PMessengerTela.csproj": {}
   },
   "projects": {
-    "D:\\Github\\P2PMessengerTela\\P2PMessengerTela\\P2PMessengerTela.csproj": {
+    "C:\\Github\\P2PMessengerTela\\P2PMessengerTela\\P2PMessengerTela.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\P2PMessengerTela\\P2PMessengerTela\\P2PMessengerTela.csproj",
+        "projectUniqueName": "C:\\Github\\P2PMessengerTela\\P2PMessengerTela\\P2PMessengerTela.csproj",
         "projectName": "P2PMessengerTela",
-        "projectPath": "D:\\Github\\P2PMessengerTela\\P2PMessengerTela\\P2PMessengerTela.csproj",
-        "packagesPath": "C:\\Users\\renan.carvalho\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\P2PMessengerTela\\P2PMessengerTela\\obj\\",
+        "projectPath": "C:\\Github\\P2PMessengerTela\\P2PMessengerTela\\P2PMessengerTela.csproj",
+        "packagesPath": "C:\\Users\\Renan\\.nuget\\packages\\",
+        "outputPath": "C:\\Github\\P2PMessengerTela\\P2PMessengerTela\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\renan.carvalho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Renan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -27,7 +27,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nuget.rte.com.br/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,6 +48,10 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
             }
           },
           "imports": [
